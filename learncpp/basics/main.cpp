@@ -316,3 +316,138 @@ int main()
 
     return 0;
 }
+
+// Identifier naming best practices
+int value; // conventional
+
+int Value; // unconventional (should start with lower case letter)
+int VALUE; // unconventional (should start with lower case letter and be in all lower case)
+int VaLuE; // unconventional (see your psychiatrist) ;)
+
+int my_variable_name;   // conventional (separated by underscores/snake_case)
+int my_function_name(); // conventional (separated by underscores/snake_case)
+
+int myVariableName;   // conventional (intercapped/camelCase)
+int myFunctionName(); // conventional (intercapped/camelCase)
+
+int my variable name;   // invalid (whitespace not allowed)
+int my function name(); // invalid (whitespace not allowed)
+
+int MyVariableName;   // unconventional (should start with lower case letter)
+int MyFunctionName(); // unconventional (should start with lower case letter)
+
+// Using whitespace to format code
+int main()
+{
+    std::cout
+        << "Hello world"; // works fine
+    return 0;
+}
+
+// Basic formatting
+int main()
+{
+    std::cout << "This is a really, really, really, really, really, really, really, "
+                 "really long line\n"; // one extra indentation for continuation line
+
+    std::cout << "This is another really, really, really, really, really, really, really, "
+                 "really long line\n"; // text aligned with the previous line for continuation line
+
+    std::cout << "This one is short\n";
+}
+
+//  Harder to read:
+std::cout << "Hello world!\n";                 // cout lives in the iostream library
+std::cout << "It is very nice to meet you!\n"; // these comments make the code hard to read
+std::cout << "Yeah!\n";                        // especially when lines are different lengths
+
+// Easier to read
+std::cout << "Hello world!\n";                 // cout lives in the iostream library
+std::cout << "It is very nice to meet you!\n"; // these comments are easier to read
+std::cout << "Yeah!\n";                        // especially when all lined up
+
+// Harder to read
+// cout lives in the iostream library
+std::cout << "Hello world!\n";
+// these comments make the code hard to read
+std::cout << "It is very nice to meet you!\n";
+// especially when all bunched together
+std::cout << "Yeah!\n";
+
+// Easier to read
+// cout lives in the iostream library
+std::cout << "Hello world!\n";
+
+// these comments are easier to read
+std::cout << "It is very nice to meet you!\n";
+
+// when separated by whitespace
+std::cout << "Yeah!\n";
+
+// Operations
+int main()
+{
+    std::cout << 1 + 2 << '\n';
+
+    return 0;
+}
+
+// Expressions
+// five() is a function that returns the value 5
+int five()
+{
+    return 5;
+}
+
+int main()
+{
+    int a{2};           // initialize variable a with literal value 2
+    int b{2 + 3};       // initialize variable b with computed value 5
+    int c{(2 * 3) + 4}; // initialize variable c with computed value 10
+    int d{b};           // initialize variable d with variable value 5
+    int e{five()};      // initialize variable e with function return value 5
+
+    return 0;
+}
+
+2                  // 2 is a literal that evaluates to value 2
+    "Hello world!" // "Hello world!" is a literal that evaluates to text "Hello world!"
+    x              // x is a variable that evaluates to the value held by variable x
+    2 +
+    3      // operator+ uses operands 2 and 3 to evaluate to value 5
+    five() // evaluates to the return value of function five()
+
+    int x{2 + 3}; // 2 + 3 is an expression that has no semicolon -- the semicolon is at the end of the statement containing the expression
+/*
+type identifier { expression };
+
+type could be any valid type (we chose int). identifier could be any valid name (we chose x).
+And expression could be any valid expression (we chose 2 + 3, which uses two literals and an operator).
+*/
+
+int main()
+{
+    std::cout << 2 + 3 << '\n';
+
+    int x{6};
+    int y{x - 2};
+    std::cout << y << '\n';
+
+    int z{};
+    z = x;
+    std::cout << z * x << '\n';
+
+    return 0;
+}
+
+/*
+// Summary
+
+Initialization Type	        Example	        Note
+Default-initialization	    int x;	        In most cases, leaves variable with indeterminate value
+Copy-initialization	        int x = 5;
+Direct-initialization	    int x ( 5 );
+Direct-list-initialization	int x { 5 };	Narrowing conversions disallowed
+Copy-list-initialization	int x = { 5 };	Narrowing conversions disallowed
+Value-initialization	    int x {};	    Usually performs zero-initialization
+*/
