@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 void doPrint()
 {
@@ -243,6 +244,90 @@ int main()
 {
     int num{getValueFromUser()};
     std::cout << "The doubled value is: " << doubleNumber(num);
+
+    return 0;
+}
+
+// Local Scope
+int add(int x, int y)
+{
+    int z{x + y}; // z is a local variable
+
+    return z;
+}
+
+// Function parameters are also generally considered to be local variables, included as such:
+int add(int x, int y) // function parameters x and y are local variables
+{
+    int z{x + y};
+
+    return z;
+}
+
+// x is not in scope anywhere in this function
+void doSomething()
+{
+    std::cout << "Hello!\n";
+}
+
+int main()
+{
+    // x can not be used here because it's not in scope yet
+
+    int x{0}; // x enters scope here and can now be used within this function
+
+    doSomething();
+
+    return 0;
+} // x goes out of scope here and can no longer be used
+
+int add(int x, int y) // x and y are created and enter scope here
+{
+    // x and y are usable only within add()
+    return x + y;
+} // y and x go out of scope and are destroyed here
+
+int main()
+{
+    int a{5}; // a is created, initialized, and enters scope here
+    int b{6}; // b is created, initialized, and enters scope here
+
+    // a and b are usable only within main()
+
+    std::cout << add(a, b) << '\n'; // calls add(5, 6), where x=5 and y=6
+
+    return 0;
+} // b and a go out of scope and are destroyed here
+
+int main()
+{
+    std::cout << "Enter an integer: ";
+    double x{};    // x defined here
+    std::cin >> x; // and used here
+
+    std::cout << "Enter another integer: ";
+    double y{};    // y defined here
+    std::cin >> y; // and used here
+
+    double result{pow(x, y)}; // raised to power can be initialized with intended value
+    std::cout << "The power is: " << result << '\n';
+
+    return 0;
+}
+
+int getValueFromUser()
+{
+    int val{}; // val is a local variable
+    std::cout << "Enter a value: ";
+    std::cin >> val;
+    return val;
+}
+
+int main()
+{
+    int num{getValueFromUser()}; // main does not need to pass anything
+
+    std::cout << "You entered the value " << num << '\n';
 
     return 0;
 }
