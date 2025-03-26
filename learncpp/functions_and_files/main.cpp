@@ -331,3 +331,30 @@ int main()
 
     return 0;
 }
+
+// Forward declarations and definitions
+int add(int x, int y); // forward declaration of add() (using a function declaration)
+
+int main()
+{
+    std::cout << "The sum of 3 and 4 is: " << add(3, 4) << '\n'; // this works because we forward declared add() above
+    return 0;
+}
+
+int add(int x, int y) // even though the body of add() isn't defined until here
+{
+    return x + y;
+}
+
+int doMath(int first, int second, int third, int fourth);
+
+int main()
+{
+    std::cout << "Here is the result of the math computation: " << doMath(5, 6, 7, 3) << '\n';
+    return 0;
+}
+
+int doMath(int first, int second, int third, int fourth)
+{
+    return first + second * third / fourth;
+}
