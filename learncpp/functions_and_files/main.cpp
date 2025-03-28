@@ -358,3 +358,5 @@ int doMath(int first, int second, int third, int fourth)
 {
     return first + second * third / fourth;
 }
+
+// Naming collisions and an introduction to namespaces
